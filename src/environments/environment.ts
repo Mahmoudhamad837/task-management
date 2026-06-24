@@ -1,4 +1,4 @@
 export const environment = {
-  apiUrl: 'http://localhost:3000',
+  apiUrl: 'task-management-be-production-f356.up.railway.app',
   authUrl: 'https://dummyjson.com',
 };
