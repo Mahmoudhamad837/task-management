@@ -1,0 +1,49 @@
+@if (toast(); as currentToast) {
+<aside class="toast" [class.toast--error]="
+      currentToast.type === 'error'
+    " [class.toast--success]="
+      currentToast.type === 'success'
+    " [class.toast--info]="
+      currentToast.type === 'info'
+    " role="alert" aria-live="assertive">
+    <div class="toast-icon">
+        @switch (currentToast.type) {
+        @case ('error') {
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+
+            <path d="M12 8v5" />
+            <path d="M12 16h.01" />
+        </svg>
+        }
+
+        @case ('success') {
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+
+            <path d="m8 12 2.7 2.7L16 9.5" />
+        </svg>
+        }
+
+        @default {
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+
+            <path d="M12 11v5" />
+            <path d="M12 8h.01" />
+        </svg>
+        }
+        }
+    </div>
+
+    <p>
+        {{ currentToast.message }}
+    </p>
+
+    <button type="button" aria-label="Close notification" (click)="dismiss()">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+    </button>
+</aside>
+}

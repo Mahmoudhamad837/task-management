@@ -1,0 +1,77 @@
+<section class="filter-panel" aria-label="Product filters" [formGroup]="form">
+    <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+
+            <path d="m20 20-3.5-3.5" />
+        </svg>
+
+        <input type="search" formControlName="search" placeholder="Search Courses..." aria-label="Search products"
+            autocomplete="off" />
+
+        @if (form.controls.search.value) {
+        <button class="clear-search-button" type="button" aria-label="Clear search" (click)="clearSearch()">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+        </button>
+        }
+    </div>
+
+    <div class="select-wrapper">
+        <label for="category">
+            Category
+        </label>
+
+        <select id="category" formControlName="category">
+            <option value="">
+                All categories
+            </option>
+
+            @for (
+            category of categories();
+            track category.id
+            ) {
+            <option [value]="category.name">
+                {{ category.name }}
+            </option>
+            }
+        </select>
+    </div>
+
+    <div class="select-wrapper">
+        <label for="status">
+            Status
+        </label>
+
+        <select id="status" formControlName="status">
+            <option selected disabled value="">
+                All Status
+            </option>
+
+            <option value="active">
+                Active
+            </option>
+
+            <option value="draft">
+                Draft
+            </option>
+
+            <option value="archive">
+                Archive
+            </option>
+        </select>
+    </div>
+
+    <button class="reset-button" type="button" (click)="resetFilters()">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 12a9 9 0 1 0 3-6.7" />
+
+            <path d="M3 4v6h6" />
+        </svg>
+
+        <span>
+            Reset
+        </span>
+    </button>
+</section>

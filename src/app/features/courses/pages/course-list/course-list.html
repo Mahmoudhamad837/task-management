@@ -1,0 +1,62 @@
+<section class="products-section">
+    <header class="section-header">
+        <div>
+            <!-- <p class="eyebrow">
+                Our collection
+            </p> -->
+
+            <h1>
+                Explore Courses
+            </h1>
+
+            <p class="description">
+                Discover our latest courses, carefully curated to enhance your skills and knowledge. Browse through a
+                variety of topics, from web development to data science, and find the perfect course to elevate your
+                career. Take advantage of our special promotions
+                and exclusive offers.
+            </p>
+        </div>
+    </header>
+
+    <app-course-filter [categories]="categories()" (filtersChange)="
+      applyFilters($event)
+    " />
+
+    @if (errorMessage()) {
+    <div class="state-message
+        error-state">
+        <p>
+            {{ errorMessage() }}
+        </p>
+
+        <button type="button" (click)="loadCourses()">
+            Try again
+        </button>
+    </div>
+    } @else {
+    <div class="list-actions">
+        <app-button routerLink="/courses/add">
+            Add Course
+        </app-button>
+    </div>
+    <app-data-table title="Courses" [rows]="courses()" [columns]="columns" [actions]="actions" [loading]="loading()"
+        [showIndex]="true" [trackBy]="trackCourse" emptyMessage="No Courses found." (sortChanged)="onSort($event)"
+        (actionClicked)="onAction($event)" (rowClicked)="onRowClick($event)" />
+
+    <app-pagination [currentPage]="
+        query().page ?? 1
+      " [pageSize]="
+        query().pageSize ?? 12
+      " [totalItems]="
+        totalItems()
+      " (pageChange)="
+        changePage($event)
+      " />
+    }
+
+    @if (selectedCourseToDelete(); as course) {
+    <app-confirm-dialog title="Delete Course" [message]="'Are you sure you want to delete ' + course.title + '?'"
+        warningMessage="This action cannot be undone." confirmText="Delete" cancelText="Cancel" [loading]="deleting()"
+        [danger]="true" (confirmed)="confirmDeleteCourse()" (cancelled)="closeDeleteDialog()" />
+    }
+</section>

@@ -1,0 +1,150 @@
+:host {
+  display: inline-block;
+}
+
+.button {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 500;
+  line-height: 1;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.button:focus-visible {
+  outline: 3px solid rgba(17, 24, 39, 0.18);
+  outline-offset: 3px;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+/* Sizes */
+
+.button--small {
+  min-height: 36px;
+  padding-inline: 10px;
+  font-size: 13px;
+}
+
+.button--medium {
+  min-height: 42px;
+  padding-inline: 15px;
+  font-size: 14px;
+}
+
+.button--large {
+  min-height: 48px;
+  padding-inline: 20px;
+  font-size: 15px;
+}
+
+/* Variants */
+
+.button--primary {
+  background-color: #111827;
+  color: #ffffff;
+}
+
+.button--primary:hover:not(:disabled) {
+  background-color: #374151;
+}
+
+.button--secondary {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.button--secondary:hover:not(:disabled) {
+  background-color: #d1d5db;
+}
+
+.button--outline {
+  border-color: #d1d5db;
+  background-color: #ffffff;
+  color: #111827;
+}
+
+.button--outline:hover:not(:disabled) {
+  border-color: #9ca3af;
+  background-color: #f9fafb;
+}
+
+.button--danger {
+  background-color: #dc2626;
+  color: #ffffff;
+}
+
+.button--danger:hover:not(:disabled) {
+  background-color: #b91c1c;
+}
+
+/* Width */
+
+.button--full-width {
+  width: 100%;
+}
+
+/* Icon */
+
+.button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-icon:empty {
+  display: none;
+}
+
+.button-icon ::ng-deep svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+/* Loading */
+
+.button--loading {
+  cursor: wait;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.42);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "title": "Introduction to React and Next.js",
+      "instructor": "Jane Doe",
+      "duration": "12 hours",
+      "level": "Beginner",
+      "price": 29.99,
+      "category": "Web Development",
+      "status": "active",
+      "thumbnail": "https://dummyjson.com",
+      "createdDate": "2023-01-15T10:30:00Z",
+      "description": "www"
+    },
+    {
+      "id": "2",
+      "title": "Advanced Python and Data Science",
+      "instructor": "John Smith",
+      "duration": "24 hours",
+      "level": "Advanced",
+      "price": 49.99,
+      "category": "Data Science",
+      "status": "active",
+      "thumbnail": "https://dummyjson.com",
+      "createdDate": "2023-02-20T14:45:00Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Web Development"
+    },
+    {
+      "id": "2",
+      "name": "Data Science"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

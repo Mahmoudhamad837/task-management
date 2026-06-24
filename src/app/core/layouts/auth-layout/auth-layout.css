@@ -1,0 +1,45 @@
+:host {
+  display: block;
+}
+
+.auth-shell {
+  display: flex;
+  min-height: 100vh;
+  padding: 28px 20px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f9fafb;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #111827;
+  font-size: 20px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 12px;
+  background-color: #111827;
+  color: #ffffff;
+}
+
+.auth-content {
+  width: min(100%, 440px);
+  margin-block: 36px;
+}
+
+.copyright {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 13px;
+  text-align: center;
+}

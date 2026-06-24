@@ -1,0 +1,105 @@
+:host {
+  display: block;
+}
+
+.products-section {
+  max-width: 1240px;
+  margin-inline: auto;
+  padding: 52px 24px 72px;
+}
+
+.section-header {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 7px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: #111827;
+  font-size: clamp(28px, 5vw, 42px);
+  letter-spacing: -1.4px;
+}
+
+.description {
+  margin: 10px 0 0;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: 22px;
+}
+
+.empty-message {
+  color: #6b7280;
+  width: 100%;
+  text-align: center;
+}
+
+.list-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin: 24px 0;
+}
+
+.add-course-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: 12px;
+  padding: 0 18px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.22);
+}
+
+.add-course-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .products-section {
+    padding: 38px 16px 56px;
+  }
+
+  .products-grid {
+    grid-template-columns:
+      repeat(auto-fill, minmax(min(100%, 190px), 1fr));
+    gap: 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .products-section {
+    padding-inline: 12px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 330px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}

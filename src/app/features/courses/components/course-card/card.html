@@ -1,0 +1,27 @@
+<article class="product-card">
+    <div class="image-wrapper">
+        <a class="image-link" [routerLink]="['/products', data().id]" [attr.aria-label]="'Open ' + data().title">
+            <img class="product-image" [src]="data().thumbnail" [alt]="data().title" loading="lazy" />
+        </a>
+    </div>
+
+    <div class="product-content">
+        @if (data().category) {
+        <p class="category">
+            {{ data().category }}
+        </p>
+        }
+
+        <a class="product-name" [routerLink]="['/courses', data().id]">
+            {{ data().title }}
+        </a>
+
+        <div class="card-bottom">
+            <div class="price-wrapper">
+                <span class="current-price">
+                    {{ data().price | currency: 'EGP ' : 'symbol' : '1.0-0' }}
+                </span>
+            </div>
+        </div>
+    </div>
+</article>

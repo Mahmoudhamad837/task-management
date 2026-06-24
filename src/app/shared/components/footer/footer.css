@@ -1,0 +1,134 @@
+:host {
+  display: block;
+}
+
+.site-footer {
+  margin-top: auto;
+  background-color: #111827;
+  color: #d1d5db;
+}
+
+/* .footer-container {
+  display: grid;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 64px 24px 42px;
+  grid-template-columns: minmax(240px, 1.6fr) repeat(3, minmax(140px, 1fr));
+  gap: 42px;
+} 
+
+.footer-brand p {
+  max-width: 360px;
+  margin: 18px 0 0;
+  color: #9ca3af;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+*/
+.footer-section h2 {
+  margin: 0 0 17px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.footer-section ul {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  gap: 12px;
+  list-style: none;
+}
+
+.footer-section a,
+.footer-bottom a {
+  color: #9ca3af;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.footer-section a:hover,
+.footer-bottom a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom-container {
+  display: flex;
+  max-width: 1200px;
+  min-height: 68px;
+  margin-inline: auto;
+  padding: 16px 24px;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.footer-bottom nav {
+  display: flex;
+  gap: 18px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .footer-container {
+    padding: 44px 16px 32px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-bottom-container {
+    display: grid;
+    padding-inline: 16px;
+  }
+
+  .footer-bottom nav {
+    flex-wrap: wrap;
+    gap: 10px 16px;
+  }
+}

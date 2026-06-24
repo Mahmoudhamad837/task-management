@@ -1,0 +1,32 @@
+<div class="dialog-backdrop" (click)="onCancel()">
+    <div class="confirm-dialog" (click)="stopPropagation($event)">
+        <h2>
+            {{ title() }}
+        </h2>
+
+        <p class="message">
+            {{ message() }}
+        </p>
+
+        @if (warningMessage()) {
+        <p class="warning-text">
+            {{ warningMessage() }}
+        </p>
+        }
+
+        <div class="dialog-actions">
+            <button type="button" class="cancel-btn" [disabled]="loading()" (click)="onCancel()">
+                {{ cancelText() }}
+            </button>
+
+            <button type="button" class="confirm-btn" [class.danger]="danger()" [disabled]="loading()"
+                (click)="onConfirm()">
+                @if (loading()) {
+                Loading...
+                } @else {
+                {{ confirmText() }}
+                }
+            </button>
+        </div>
+    </div>
+</div>

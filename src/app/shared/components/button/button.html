@@ -1,0 +1,18 @@
+<button class="button" [class.button--primary]="variant() === 'primary'"
+    [class.button--secondary]="variant() === 'secondary'" [class.button--outline]="variant() === 'outline'"
+    [class.button--danger]="variant() === 'danger'" [class.button--small]="size() === 'small'"
+    [class.button--medium]="size() === 'medium'" [class.button--large]="size() === 'large'"
+    [class.button--full-width]="fullWidth()" [class.button--loading]="loading()" [type]="type()"
+    [disabled]="disabled() || loading()" [attr.aria-label]="ariaLabel()" (click)="handleClick($event)">
+    @if (loading()) {
+    <span class="spinner" aria-hidden="true"></span>
+    } @else {
+    <span class="button-icon">
+        <ng-content select="[button-icon]" />
+    </span>
+    }
+
+    <span class="button-label">
+        <ng-content />
+    </span>
+</button>

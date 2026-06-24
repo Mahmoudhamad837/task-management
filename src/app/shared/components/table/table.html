@@ -1,0 +1,85 @@
+<section class="table-card">
+    @if (title()) {
+    <div class="table-header">
+        <h2>{{ title() }}</h2>
+    </div>
+    }
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    @if (showIndex()) {
+                    <th class="index-column">#</th>
+                    }
+
+                    @for (column of columns(); track column.key) {
+                    <th [style.width]="column.width" [class.sortable]="column.sortable"
+                        [class.text-center]="column.align === 'center'" [class.text-right]="column.align === 'right'"
+                        (click)="onSort(column)">
+                        <span>
+                            {{ column.header }}
+
+                            @if (column.sortable) {
+                            <small class="sort-icon">
+                                {{ getSortIcon(column) }}
+                            </small>
+                            }
+                        </span>
+                    </th>
+                    }
+
+                    @if (actions().length > 0) {
+                    <th class="actions-column">Actions</th>
+                    }
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (loading()) {
+                <tr>
+                    <td class="state-cell" [attr.colspan]="columns().length + actions().length + (showIndex() ? 1 : 0)">
+                        Loading...
+                    </td>
+                </tr>
+                } @else if (rows().length === 0) {
+                <tr>
+                    <td class="state-cell" [attr.colspan]="columns().length + actions().length + (showIndex() ? 1 : 0)">
+                        {{ emptyMessage() }}
+                    </td>
+                </tr>
+                } @else {
+                @for (row of rows(); track trackRow(row, $index)) {
+                <tr (click)="onRowClick(row)">
+                    @if (showIndex()) {
+                    <td class="index-column">
+                        {{ $index + 1 }}
+                    </td>
+                    }
+
+                    @for (column of columns(); track column.key) {
+                    <td [class.text-center]="column.align === 'center'" [class.text-right]="column.align === 'right'">
+                        {{ getCellValue(row, column) }}
+                    </td>
+                    }
+
+                    @if (actions().length > 0) {
+                    <td class="actions-column">
+                        <div class="actions">
+                            @for (action of actions(); track action.key) {
+                            @if (isActionVisible(action, row)) {
+                            <app-button [variant]="action.variant" [disabled]="isActionDisabled(action, row)"
+                                [size]="'small'" (buttonClick)="onActionClick($event, action, row)">{{ action.label
+                                }}</app-button>
+                            }
+                            }
+                        </div>
+                    </td>
+                    }
+                </tr>
+                }
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

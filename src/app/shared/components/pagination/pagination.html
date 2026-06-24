@@ -1,0 +1,43 @@
+@if (totalPages() > 1) {
+<nav class="pagination" aria-label="Products pagination">
+    <button type="button" aria-label="Go to previous page" [disabled]="currentPage() === 1" (click)="
+        goToPage(
+          currentPage() - 1
+        )
+      ">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m15 18-6-6 6-6" />
+        </svg>
+    </button>
+
+    @for (
+    page of visiblePages();
+    track page
+    ) {
+    <button type="button" [class.active]="
+          page === currentPage()
+        " [attr.aria-label]="
+          'Go to page ' + page
+        " [attr.aria-current]="
+          page === currentPage()
+            ? 'page'
+            : null
+        " (click)="goToPage(page)">
+        {{ page }}
+    </button>
+    }
+
+    <button type="button" aria-label="Go to next page" [disabled]="
+        currentPage() ===
+        totalPages()
+      " (click)="
+        goToPage(
+          currentPage() + 1
+        )
+      ">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m9 18 6-6-6-6" />
+        </svg>
+    </button>
+</nav>
+}
